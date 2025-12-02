@@ -105,6 +105,7 @@ h1{
   text-align: center;
   color: #fff;
   margin-top: 90px;
+  filter: drop-shadow(1px 7px 4px #000000);
 }
 
 .container-classes {
@@ -114,8 +115,8 @@ h1{
 }
 
 .classes {
- color: white;
-  width: 400px;
+  color: white;
+  width: 600px;
   padding: 20px;
   box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
   font-size: 18px;
