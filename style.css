@@ -310,3 +310,11 @@ div.classes.social-media-contant:hover {
   0%   {top:0px;}
   100% {top:40px;}
 } */
+
+
+/* enviar email */
+.page-enviar-email {
+  color: white;
+  text-align: center;
+  filter: drop-shadow(1px 7px 4px #000000);
+}
