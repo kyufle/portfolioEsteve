@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <a href=""><img src="images/logo.png" alt="logo empresarial"></a>
         <div>
             <a href="">
@@ -23,12 +23,12 @@
             <a href="#works">
                 <h3>Trabajos</h3>
             </a>
-            <a href="">
+            <a href="#contact">
                 <h3>Contacto</h3>
             </a>
         </div>
     </header>
-    <div class="introduccion">
+    <div class="introduccion" id="me">
         <div class="image">
             <img class="asterisco" src="images/asterisco.png" alt="asterisco">
             <img src="images/cuadrados.png" alt="cuadrados con imagen">
@@ -107,7 +107,7 @@
             </ul>
         </section>
     </div>
-    <h1>Contacto</h1>
+    <h1 id="contact">Contacto</h1>
     <div class="contact">
         <div class="classes form">
             <form>
@@ -168,7 +168,9 @@
             </a>
         </div>
     </div>
-
+    <div class="flecha-arriba">
+                <a href="#header"><img src="images/flecha-arriba.png" alt="flecha arriba"></a>
+    </div>
     <footer>
         <div class="footer-baby">
             <p>Esta página está alojada en los servidores de <a href="https://agora.xtec.cat/iesesteveterradas/"

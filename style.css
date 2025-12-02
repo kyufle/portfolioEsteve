@@ -85,12 +85,15 @@ header a {
 
 .work-class img{
   width: 50px;
-  position:relative;
+  position: relative;
   animation-name: flecha;
   animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
+  background-color: #151515;
+  padding: 10px;
+  border-radius: 30px;
 }
 
 @keyframes flecha {
@@ -280,3 +283,28 @@ div.classes.social-media-contant:hover {
 .button-get-back:hover{
   background-color: rgb(209, 209, 209);
 }
+
+.flecha-arriba{
+ display: flex;
+  justify-content: right;
+  position: relative;
+  margin-right: 110px;
+  margin-top: 10px;
+}
+
+.flecha-arriba img{
+  width: 30px;
+}
+
+.flecha-arriba a{
+ width: 46px;
+  position: relative;
+  background-color: #151515;
+  padding: 8px;
+  border-radius: 40px;
+}
+
+/* @keyframes flecha-arriba {
+  0%   {top:0px;}
+  100% {top:40px;}
+} */
