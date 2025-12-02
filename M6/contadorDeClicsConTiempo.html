@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador de clics con tiempo</title>
+</head>
+<body>
+  <div>
+    <p id="contador">0 s</p>
+    <p id="clicado">Clicado 0 veces</p>
+    <input type="button" id="empezar" value="Empezar">
+    <input type="button" id="clicar" value="Clicar" disabled>
+  </div>
+
+  <script>
+    const empezar = document.getElementById("empezar");
+    const clicar = document.getElementById("clicar");
+    const clicado = document.getElementById("clicado");
+    const contador = document.getElementById("contador");
+
+    let vecesClicado = 0;
+    let tiempo = 0;
+    let intervalo;
+
+    empezar.addEventListener("click", () => {
+      empezar.disabled = true;
+      clicar.disabled = false;
+
+      tiempo = 0;
+      contador.textContent = `${tiempo} s`;
+      vecesClicado = 0;
+      clicado.textContent = `Clicado ${vecesClicado} veces`;
+
+      intervalo = setInterval(() => {
+        tiempo++;
+        contador.textContent = `${tiempo} s`;
+
+        if (tiempo >= 5) {
+          clearInterval(intervalo);
+          clicar.disabled = true;
+          empezar.disabled = false;
+        }
+      }, 1000);
+    });
+
+    clicar.addEventListener("click", () => {
+      vecesClicado++;
+      clicado.innerText = `Clicado ${vecesClicado} veces`;
+    });
+  </script>
+</body>
+</html>
+
+

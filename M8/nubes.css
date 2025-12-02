@@ -1,0 +1,146 @@
+html {
+    background-color: #49b2fc;
+    /* For browsers that do not support gradients */
+    background-image: linear-gradient(#1b83f9, #49b2fc);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+p {
+    text-align: center;
+    font-size: 2em;
+}
+
+.nubol {
+    position: absolute;
+    background-image: url(nube.png);
+    background-size: cover;
+}
+
+.cerdito {
+    position: absolute;
+    background-image: url(cerdito.png);
+    background-size: cover;
+}
+
+.cerdito1 {
+    top: 70px;
+    left: 15%;
+    width: 300px;
+    height: 300px;
+    z-index: -1;
+    animation: cerdito1 10s infinite ease-in-out;
+    animation-direction: alternate;
+}
+
+@keyframes cerdito1 {
+    0% {
+        left: 15%
+    }
+
+    100% {
+        left: -200%
+    }
+}
+
+.nubol1 {
+    top: 70px;
+    left: 15%;
+    width: 300px;
+    height: 300px;
+    z-index: -1;
+    animation: nube1 10s infinite ease-in-out;
+}
+
+@keyframes nube1 {
+    0% {
+        left: 15%
+    }
+
+    100% {
+        left: 200%
+    }
+}
+
+.nubol2 {
+    top: 80px;
+    left: 35%;
+    width: 100px;
+    height: 100px;
+    z-index: -2;
+    animation: nube2 11s infinite linear;
+}
+
+@keyframes nube2 {
+    0% {
+        left: 35%;
+        top: 80px
+    }
+
+    100% {
+        left: 200%;
+        top: 100px
+    }
+}
+
+.nubol3 {
+    top: 200px;
+    left: 75%;
+    width: 200px;
+    height: 200px;
+    z-index: -2;
+    animation: nube3 7s infinite linear;
+}
+
+@keyframes nube3 {
+    0% {
+        left: 35%;
+        top: 100px
+    }
+
+    100% {
+        left: 200%;
+        top: 200px
+    }
+}
+
+.nubol4 {
+    top: 90px;
+    left: 10%;
+    width: 200px;
+    height: 200px;
+    z-index: -2;
+    animation: nube4 8s infinite linear;
+}
+
+@keyframes nube4 {
+    0% {
+        left: 35%;
+        top: 80px
+    }
+
+    100% {
+        left: 200%;
+        top: 100px
+    }
+}
+
+.nubol5 {
+    top: 400px;
+    left: 35%;
+    width: 120px;
+    height: 120px;
+    z-index: -10;
+    animation: nube4 9s infinite linear;
+}
+
+@keyframes nube4 {
+    0% {
+        left: 35%
+    }
+
+    100% {
+        left: 200%
+    }
+}

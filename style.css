@@ -1,0 +1,282 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html{
+    background-image: url('images/fondo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "DM Sans", sans-serif;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+header{
+    background-color: #151515;
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+}
+
+header div{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    width: 100%;
+    gap: 100px;
+    margin-right: 50px;
+}
+
+header img{
+    width: 100px;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.introduccion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 100px);
+}
+
+.image{
+    position: relative;
+    filter: drop-shadow(1px 7px 4px #000000);
+}
+.asterisco {
+  position: absolute;
+  top: 110px;
+  left: 153px;
+  transition: transform 2s;
+}
+
+.asterisco:hover{
+    transform: rotate(90deg);
+}
+
+.cat{
+    width: 300px;
+    position: absolute;
+    top: 190px;
+    left: 30px;
+}
+
+.introduccion .texto {
+  background-color: #e6e5e1;
+  border-radius: 36px;
+  width: 500px;
+  align-items: center;
+  display: flex;
+  padding: 20px;
+}
+
+.work-class{
+  position: absolute;
+  bottom: 90px;
+  left: 50%;
+  height: 80px;
+}
+
+.work-class img{
+  width: 50px;
+  position:relative;
+  animation-name: flecha;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes flecha {
+  0%   {top:0px;}
+  100% {top:40px;}
+}
+
+h1{
+  text-align: center;
+  color: #fff;
+  margin-top: 90px;
+}
+
+.container-classes {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.classes {
+ color: white;
+  width: 400px;
+  padding: 20px;
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+  font-size: 18px;
+  background-color: #00000075;
+  border-radius: 5px;
+}
+
+.classes div{
+  display: flex;
+  justify-content: center;
+}
+
+.classes a{
+  color: #85cfdb;
+}
+
+footer{
+  background-color: #151515;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+footer p {
+  color: white;
+}
+
+footer a{
+  color: #85cfdb;
+}
+
+.social-media{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.social-media img{
+  width: 40px;
+}
+
+.contact{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+input{
+  border-radius: 5px;
+  padding: 10px;
+  border: 2px solid #fff;
+}
+
+.name-email{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+form label{
+  margin: 20px 0px 5px 0px;
+}
+
+.form{
+  width: 740px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  height: 400px;
+}
+
+.name, .email{
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+  
+}
+
+textarea#message{
+  height: 100px;
+  border-radius: 5px;
+  padding: 10px;
+  border: 2px solid #fff;
+}
+
+.button-submit-form{
+  display: flex;
+  justify-content: center;
+}
+
+.button-submit-form button {
+  padding: 5px;
+  border-radius: 2px;
+  border: 0;
+  background: black;
+  margin-top: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+.button-submit-form button:hover{
+   background-color: white;
+   color:black;
+}
+
+.all-social-media{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.all-social-media p{
+  text-decoration: none;
+}
+
+/* contactos iconos */
+.social-media-contant {
+  width: 600px;
+  height: 80px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  text-wrap: wrap;
+  padding: 60px;
+}
+
+.social-media-contant img{
+  width: 40px;
+}
+
+.all-social-media a {
+  text-decoration: none;
+}
+div.classes.social-media-contant:hover {
+  border-left: 6px solid #85cfdb;
+  height: 80px;
+}
+
+/* errors */
+.errors-body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-get-back{
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.button-get-back:hover{
+  background-color: rgb(209, 209, 209);
+}

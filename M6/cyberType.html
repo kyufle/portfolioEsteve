@@ -1,0 +1,89 @@
+//cinco letras cada segundo, aleatoria, pulsas la letra lo más rapido positble y se miran que sea correctas.
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberType</title>
+    <style>
+        .correct {
+            color: green;
+        }
+
+        .incorrect {
+            color: red;
+        }
+    </style>
+</head>
+
+
+<body>
+    <p id="randomLettersOutput"></p>
+</body>
+<script>
+    let randomLettersOutput = document.getElementById("randomLettersOutput");
+    const letters = [];
+    for (let i = 0; i < 26; i++) {
+        letters.push(String.fromCharCode(97 + i));
+        letters.push(String.fromCharCode(65 + i));
+    }
+
+    const randomLetter = () => {
+        const index = Math.floor(Math.random() * letters.length);
+        return letters[index];
+    }
+
+    const id = setInterval(() => {
+        randomLettersOutput.innerHTML += "<span id=\"i\">" + randomLetter() + "</span>";
+        const nodeListLetters = document.querySelectorAll("#randomLettersOutput span");
+        const penultimaLetra = nodeListLetters[nodeListLetters.length - 2];
+        if (penultimaLetra === undefined) {
+            return;
+        }
+        if (!penultimaLetra.classList.contains("correct") && !penultimaLetra.classList.contains("incorrect")) {
+            penultimaLetra.classList.add("incorrect");
+        }
+    }, 1000);
+    setTimeout(() => {
+        clearInterval(id);
+        //ya ha acabado el juego, esperamos 1 segundo y la marcamos como rojo si no le han dado
+        setTimeout(() => {
+            const finishLetter = document.querySelectorAll("#randomLettersOutput span");
+            if(!finishLetter[finishLetter.length-1].classList.contains("correct") && !finishLetter[finishLetter.length-1].classList.contains("incorrect")){
+                finishLetter[finishLetter.length-1].classList.add("incorrect");
+            }
+        }, 1000);
+    }, 6000);
+
+
+
+    const identifyKey = event => {
+        let keyDownLetter = event.key;
+        if (event.key === "Control" || event.key === "Shift" || event.key === "Alt" || event.key === "CapsLock") {
+            return;
+        }
+
+        const nodeListLetters = document.querySelectorAll("#randomLettersOutput span");
+
+        // const letra = nodeListLetters
+        nodeListLetters.forEach((letra, index) => {
+            if (index !== nodeListLetters.length - 1) {
+                return;
+            }
+
+            if (letra.textContent === keyDownLetter) {
+                letra.classList.add("correct");
+            } else {
+                letra.classList.add("incorrect");
+            }
+        });
+    }
+    document.addEventListener("keydown", identifyKey)
+
+
+
+
+</script>
+
+</html>

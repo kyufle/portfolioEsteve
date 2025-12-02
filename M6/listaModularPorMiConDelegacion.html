@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Modular Por Mi</title>
+</head>
+<body>
+    <input type="text" id="textInput">
+    <button type="submit" id="createButton">crear tarea</button>
+    <ul></ul>
+
+    <script>
+        const inputCreate = document.getElementById("textInput");
+        const createButton = document.getElementById("createButton");
+        const parentUl = document.querySelector("ul");
+
+        //eliminar elemento
+        parentUl.addEventListener("click",(e)=>{
+            if (e.target.classList.contains("delete")){
+                deleteElement(e);
+            } else if (e.target.classList.contains("edit")){
+                editElement(e);
+            } else if (e.target.classList.contains("ok")){
+                saveEditValue(e);
+            }
+        })
+        //coger el valor del input
+        const getInputValue = () =>{
+            return inputCreate.value;
+        }
+
+        const setAttributes = (element, attributes) =>{
+            const attributeKeys = Object.keys(attributes);
+            for (let i = 0; i<attributeKeys.length;i++){
+                const key = attributeKeys[i];
+                element.setAttribute(key, attributes[key]);
+            } 
+            
+        }
+        //crear elemento
+        const createElement = (tag, parent = document, content = null, attributes = {}) =>{
+            const element = document.createElement(tag);
+            element.innerHTML = content;
+            if (Object.keys(attributes).length !== 0){
+                setAttributes(element, attributes);
+            }
+            if (parent){
+                parent.appendChild(element);
+            }
+            return element;
+        }
+
+        const addTask = ()=>{
+             const inputValue = getInputValue();
+             if (inputValue !== ""){
+                const parentLi = createElement("li", document.querySelector("ul"), "", {class:"bold"});
+                createElement("span",parentLi,inputValue);
+                const editButton = createElement("button", parentLi, "editar", {class:"edit"})
+                const deleteButton = createElement("button", parentLi, "borrar", {class:"delete"})
+                inputCreate.value = "";
+                inputCreate.focus();
+             }
+        }
+        
+        const hideElementsEdit = (element, span)=>{
+            span.style.display = "none";
+            const elementButtons = element.parentElement.querySelectorAll("button");
+            for (let j = 0; j<elementButtons.length;j++){
+                elementButtons[j].style.display = "none";
+            }
+        }
+
+        const createElementsEdit = (element, span) =>{
+            createElement("input", element.parentElement,"", { value:  span.textContent});
+            const okButton = createElement("button", element.parentElement, "OK", {class:"ok"});
+        }
+        //editar elemento
+        const editElement = (event) =>{
+            const element = event.target;
+            const span = element.parentElement.querySelector("span");
+            hideElementsEdit(element, span);
+            createElementsEdit(element, span);
+        }
+
+        const saveEditValue = (event) =>{
+            const targetElement = event.target;
+            const li = targetElement.parentElement;
+            const span = li.querySelector("span");
+            const input = li.querySelector("input");
+            const nuevoValor = input.value;
+            li.removeChild(input);
+            li.removeChild(li.querySelector(".ok"));
+
+            span.textContent = nuevoValor;
+            span.style.display = "inline-block";
+            const elementButtons = li.querySelectorAll("button");
+            for (let j = 0; j<elementButtons.length;j++){
+                elementButtons[j].style.display = "inline-block";
+            }
+        }
+        //borrarlo
+         const deleteElement = (event) =>{
+            const element = event.target.parentElement;
+            element.remove();
+        }
+        createButton.addEventListener("click", addTask);
+        
+
+    </script>
+</body>
+</html>

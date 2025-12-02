@@ -1,0 +1,124 @@
+<!-- calculadora con dos inputs, suma y resta y muestra el resultado por pantalla, parseInt. Con estilos y le tienes que dar click a los botones para escribirlo y funciona. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        input {
+            margin: 10px;
+            width: 40px;
+            height: 40px;
+        }
+        input#operations {
+            width: 230px;
+        }
+        input#enter{
+            width: 170px;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            align-items: center;
+        }
+        .contenedorNumeros{
+            background-color: #d0d9a0;
+            border-radius: 5px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="contenedorNumeros">
+        <input type="text" readonly id="operations">
+        <div class="separadorNumerosFila">
+            <input type="button" value="7">
+            <input type="button" value="8">
+            <input type="button" value="9">
+            <input type="button" value="+">
+        </div>
+        <div class="separadorNumerosFila">
+            <input type="button" value="4">
+            <input type="button" value="5">
+            <input type="button" value="6">
+            <input type="button" value="-">
+        </div>
+        <div class="separadorNumerosFila">
+            <input type="button" value="1">
+            <input type="button" value="2">
+            <input type="button" value="3">
+            <input type="button" value="del">
+        </div>
+        <div class="separadorNumerosFila">
+            <input type="button" value="0">
+            <input type="button" id="enter" value="enter">
+            
+            
+        </div>
+
+
+    </div>
+    <script>
+        //coger los elementos de los valores de los números.
+        //cogerlos cuando le hagan click al boton.
+        //concatenarlo en el input
+        const clickAllButtons = document.querySelectorAll(".separadorNumerosFila input[type='button']");
+        const operations = document.getElementById("operations");
+        const calcular = (texto) => {
+            let number = 0;
+            let numberTextTemporal = "";
+            let operacionActual = "";
+            for (let i = 0; i < texto.length; i++) {
+                if (!isNaN(texto[i])) {
+                    numberTextTemporal += texto[i];
+                }
+                else {
+                    if (operacionActual === "+" || operacionActual === "") {
+                        number += parseInt(numberTextTemporal);
+                    } else {
+                        number -= parseInt(numberTextTemporal);
+                    }
+
+                    operacionActual = texto[i];
+                    numberTextTemporal = "";
+                }
+            }
+
+            // viva la vida loca
+            if (operacionActual === "+" || operacionActual === "") {
+                number += parseInt(numberTextTemporal);
+            } else {
+                number -= parseInt(numberTextTemporal);
+            }
+            return number;
+        }
+        
+
+        
+        console.log(clickAllButtons);
+        clickAllButtons.forEach((button, index) => {
+            button.addEventListener("click", (event) => {
+            if (button.value === "enter"){
+                let operacion = calcular(operations.value);
+                operations.value = operacion;
+            } else if(button.value === "del"){
+                operations.value = operations.value.substring(0,operations.value.length-1);
+            } else{
+                operations.value += event.target.value;
+            }
+            
+            })
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semaforo</title>
+    <style>
+        .all {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .semaforo {
+            background-color: rgb(58, 58, 58);
+            padding: 20px;
+            width: 120px;
+        }
+
+        .semaforo div {
+            margin: 0px 0px 10px 0px;
+        }
+
+        .verde, .rojo, .amarillo, #response{
+            border-radius: 120px;
+            width: 120px;
+            height: 120px;
+        }
+        .verde {
+            background-color: green;
+            
+        }
+
+        .amarillo {
+            background-color: yellow;
+            
+        }
+
+        .rojo {
+            background-color: red;
+        
+        }
+
+        #response {
+            border-radius: 120px;
+            border: 1px solid black;
+            margin-top: 20px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all">
+        <div class="semaforo">
+            <div class="verde"></div>
+            <div class="amarillo"></div>
+            <div class="rojo"></div>
+        </div>
+        <div>
+            <div id="response"></div>
+        </div>
+    </div>
+
+</body>
+<script>
+    const semaforo = document.querySelectorAll(".semaforo div");
+    const response = document.getElementById("response");
+    const changeColors = () => {
+        semaforo.forEach(div => {
+            div.addEventListener("click", () => {
+                selectColor(div);
+            })
+        });
+    }
+
+    const selectColor = (div) => {
+        response.classList.remove("rojo", "verde", "amarillo");
+        response.classList.add(div.classList.value);
+    }
+    changeColors();
+
+</script>
+
+</html>
