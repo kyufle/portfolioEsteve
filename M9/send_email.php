@@ -33,29 +33,29 @@
                 echo "Hay errores en el email";
             } else{
                  $mailto = "rromerocarretero.cf@iesesteveterradas.cat";
-            $subject = $_POST["subject"];
+            // $subject = $_POST["subject"];
 
-            $boundary=md5(uniqid(rand()));
-            $header = "From: info<".$mailto.">\n";
-            $header .= "Reply-To: ".$mailto."\n";
-            $header .= "MIME-Version: 1.0"."\n";
-            $header .= "Content-type: multipart/alternative; boundary=\"----=_NextPart_" . $boundary . "\"";
+            // $boundary=md5(uniqid(rand()));
+            // $header = "From: info<".$mailto.">\n";
+            // $header .= "Reply-To: ".$mailto."\n";
+            // $header .= "MIME-Version: 1.0"."\n";
+            // $header .= "Content-type: multipart/alternative; boundary=\"----=_NextPart_" . $boundary . "\"";
 
-            $message = "This is multipart message using MIME\n";
+            // $message = "This is multipart message using MIME\n";
 
-            $message .= "------=_NextPart_" . $boundary . "\n";
-            $message .= "Content-Type: text/plain; charset=UTF-8\n";
-            $message .= "Content-Transfer-Encoding: 7bit". "\n\n";
-            $message .= "Plain text version\n\n";
-            $message .="------=_NextPart_" . $boundary . "\n";
-            $message .="Content-Type: text/html; charset=UTF-8\n";
-            $message .= "Content-Transfer-Encoding: 7bit". "\n\n";
-            $message .="
-            <center>
-            <b>HTML text version</b>
-            </center>
-            \n\n";
-            $message .= "------=_NextPart_" . $boundary . "--";
+            // $message .= "------=_NextPart_" . $boundary . "\n";
+            // $message .= "Content-Type: text/plain; charset=UTF-8\n";
+            // $message .= "Content-Transfer-Encoding: 7bit". "\n\n";
+            // $message .= "Plain text version\n\n";
+            // $message .="------=_NextPart_" . $boundary . "\n";
+            // $message .="Content-Type: text/html; charset=UTF-8\n";
+            // $message .= "Content-Transfer-Encoding: 7bit". "\n\n";
+            // $message .="
+            // <center>
+            // <b>HTML text version</b>
+            // </center>
+            // \n\n";
+            // $message .= "------=_NextPart_" . $boundary . "--";
 
             if(mail($mailto, $subject, $message, $header))
             {
