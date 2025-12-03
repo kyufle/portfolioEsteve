@@ -31,8 +31,9 @@
         }
             if($has_errors){
                 echo "Hay errores en el email";
-            } else{
-                 $mailto = "rromerocarretero.cf@iesesteveterradas.cat";
+            } 
+            // else{
+            //      $mailto = "rromerocarretero.cf@iesesteveterradas.cat";
             // $subject = $_POST["subject"];
 
             // $boundary=md5(uniqid(rand()));
@@ -69,7 +70,7 @@
         <p>form procesado</p>
         <a href="<?php basename(__FILE__)?>">Volver a enviar</a>
     <?php
-            }
+            // }
     ?>
     <?php endif;?>
 </body>
