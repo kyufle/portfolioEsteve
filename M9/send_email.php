@@ -58,7 +58,7 @@
             // \n\n";
             // $message .= "------=_NextPart_" . $boundary . "--";
 
-            if(mail($mailto, $subject, $message, $header))
+            if(mail(ini_set($mailto), ini_set($subject), ini_set($message), ini_set($header)))
             {
             print'email sent';
             }
