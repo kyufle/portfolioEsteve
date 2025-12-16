@@ -51,10 +51,10 @@ $mail = new PHPMailer(true);
                     $errors[] = "El campo **Asunto** no puede estar vacío y debe contener entre 3 y 988 caracteres.";
                 }
 
-                if (empty($from_email) || !filter_var($from_email, FILTER_VALIDATE_EMAIL)) {
-                    $has_errors = true;
-                    $errors[] = "El campo **De** no es una dirección de correo válida.";
-                }
+                // if (empty($from_email) || !filter_var($from_email, FILTER_VALIDATE_EMAIL)) {
+                //     $has_errors = true;
+                //     $errors[] = "El campo **De** no es una dirección de correo válida.";
+                // }
 
                 if (empty($to_email) || !filter_var($to_email, FILTER_VALIDATE_EMAIL)) {
                     $has_errors = true;
@@ -66,10 +66,10 @@ $mail = new PHPMailer(true);
                     $errors[] = "El campo **Texto** no puede estar vacío y debe contener entre 100 y 5000 caracteres.";
                 }
                 
-                if (empty($htmlText) || strlen($htmlText) < 10) {
-                     $has_errors = true;
-                    $errors[] = "El campo **HTML Text** no puede estar vacío y debe contener al menos 10 caracteres.";
-                }
+                // if (empty($htmlText) || strlen($htmlText) < 10) {
+                //      $has_errors = true;
+                //     $errors[] = "El campo **HTML Text** no puede estar vacío y debe contener al menos 10 caracteres.";
+                // }
             }
 
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$has_errors) {
